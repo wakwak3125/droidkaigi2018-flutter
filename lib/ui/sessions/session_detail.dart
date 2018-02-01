@@ -250,14 +250,16 @@ class _SessionDetailState extends State<SessionDetail> {
       height: _kAppBarHeight + statusBarHeight,
       child: new Opacity(
         opacity: _textOpacity.transform(t.clamp(0.0, 1.0)),
-        child: new Container(
-          decoration: const BoxDecoration(
-            image: const DecorationImage(
+        child: new Hero(
+          tag: widget.session.id,
+          child: new Container(
+            decoration: const BoxDecoration(
+                image: const DecorationImage(
               image: const AssetImage(
                 _imgHeader,
               ),
               fit: BoxFit.cover,
-            ),
+            )),
           ),
         ),
       ),

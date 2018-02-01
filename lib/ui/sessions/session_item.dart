@@ -71,11 +71,13 @@ class _SessionsItemState extends State<SessionsItem> {
     final Session _session = widget.session;
 
     final formatter =
-        new DateFormat.Hm(Localizations.localeOf(context).languageCode);
+    new DateFormat.Hm(Localizations
+        .localeOf(context)
+        .languageCode);
     final startAt = formatter.format(_session.startsAt);
     final endAt = formatter.format(_session.endsAt);
 
-    return new Card(
+    return new Hero(tag: _session.id, child: new Card(
       child: new InkWell(
         onTap: () => _showDetailPage(_session),
         child: new Padding(
@@ -87,12 +89,15 @@ class _SessionsItemState extends State<SessionsItem> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: <Widget>[
                   new Text(
-                    "${Strings.of(context).day(widget.session.getDay())}   $startAt - $endAt / ${_session.room.name}",
+                    "${Strings.of(context).day(widget.session
+                        .getDay())}   $startAt - $endAt / ${_session.room
+                        .name}",
                     style: timeStyle,
                   ),
                   new Container(
                       padding: const EdgeInsets.only(top: 12.0),
-                      child: new Hero(tag: _session.title, child: new Text(_session.title, style: titleStyle))),
+                      child: new Hero(tag: _session.title,
+                          child: new Text(_session.title, style: titleStyle))),
                   new DefaultTextStyle(
                     style: descriptionStyle,
                     softWrap: false,
@@ -149,7 +154,7 @@ class _SessionsItemState extends State<SessionsItem> {
           ),
         ),
       ),
-    );
+    ));
   }
 
   Future<Null> fetchFavorite(GoogleSignIn googleSignIn) async {
@@ -171,8 +176,8 @@ class _SessionsItemState extends State<SessionsItem> {
   }
 }
 
-List<Widget> _createSpeakerRows(
-    List<Speaker> speakers, TextStyle speakerNameStyle) {
+List<Widget> _createSpeakerRows(List<Speaker> speakers,
+    TextStyle speakerNameStyle) {
   return speakers.map((speaker) {
     return new Container(
       padding: const EdgeInsets.only(top: 8.0),
