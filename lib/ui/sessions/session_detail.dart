@@ -198,10 +198,12 @@ class _SessionDetailState extends State<SessionDetail> {
               // Title
               new Container(
                 alignment: Alignment.centerLeft,
-                child: new Text(
-                  widget.session.title,
-                  style: titleStyle,
-                ),
+                child: new Hero(
+                    tag: widget.session.title,
+                    child: new Text(
+                      widget.session.title,
+                      style: titleStyle,
+                    )),
               ),
               // Topic
               new Container(
@@ -337,7 +339,8 @@ class _SessionDetailState extends State<SessionDetail> {
     return new Container(
       margin: const EdgeInsets.only(top: 8.0),
       child: new Text(
-        "${Strings.of(context).day(widget.session.getDay())} / $startAt - $endAt",
+        "${Strings.of(context).day(
+            widget.session.getDay())} / $startAt - $endAt",
         style: textStyle,
       ),
     );

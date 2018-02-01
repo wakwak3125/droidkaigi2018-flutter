@@ -92,7 +92,7 @@ class _SessionsItemState extends State<SessionsItem> {
                   ),
                   new Container(
                       padding: const EdgeInsets.only(top: 12.0),
-                      child: new Text(_session.title, style: titleStyle)),
+                      child: new Hero(tag: _session.title, child: new Text(_session.title, style: titleStyle))),
                   new DefaultTextStyle(
                     style: descriptionStyle,
                     softWrap: false,
